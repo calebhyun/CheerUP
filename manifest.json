@@ -19,7 +19,7 @@
             "*://www.thehill.com/*",
             "*://www.nbcnews.com/*",
             "*://www.bbc.com/*",
-            "*://www.usnews.com/*"
+            "*://www.usnews.com/*"        
         ],
         "js": ["content.js"]
     },
@@ -37,6 +37,7 @@
       "activeTab",
       "storage",
       "declarativeContent",
-      "*://www.myrestserver.com/*"
+      "*://www.balancedmedia.org/api/*",
+      "tabs"
     ]
   }
