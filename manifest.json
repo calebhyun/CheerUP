@@ -1,0 +1,41 @@
+{
+"manifest_version": 2,
+  "name": "Chrome Plugin",
+  "description": "Testing Plugin",
+  "version": "1.0",
+  "content_scripts":[
+    {
+        "matches":[
+            "*://www.cnn.com/*",
+            "*://www.foxnews.com/*",
+            "*://www.npr.org/*",
+            "*://www.nbc.com/*",
+            "*://www.cnbc.com/*",
+            "*://www.buzzfeed.com/*",
+            "*://www.washingtonpost.com/*",
+            "*://www.cnet.com/*",
+            "*://www.msn.com/*",
+            "*://www.nypost.com/*",
+            "*://www.thehill.com/*",
+            "*://www.nbcnews.com/*",
+            "*://www.bbc.com/*",
+            "*://www.usnews.com/*"
+        ],
+        "js": ["content.js"]
+    },
+    {
+        "matches":[
+        "*://www.google.com/*"
+      ],
+      "js": ["googlecontent.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+      "activeTab",
+      "storage",
+      "declarativeContent"
+    ]
+  }

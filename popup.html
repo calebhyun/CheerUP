@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        height: 200px;
+        width: 300px;
+        outline: none;
+      }
+      .range-wrap {
+      position: relative;
+        margin: 0 auto 3rem;
+        }
+        .range {
+            -webkit-appearance: none;  /* Override default CSS styles */
+            appearance: none;
+            width: 100%; /* Full-width */
+            height: 10px; /* Specified height */
+            background: #d3d3d3; /* Grey background */
+            outline: none; /* Remove outline */
+            opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+        .range::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 15px; /* Set a specific slider handle width */
+        height: 15px; /* Slider handle height */
+        background: gray; /* Green background */
+        border-radius: 50%; 
+        cursor: pointer; /* Cursor on hover */
+        }
+        .bubble {
+        background: linear-gradient(to right, red , yellow);
+        color: white;
+        padding: 4px 12px;
+        position: absolute;
+        border-radius: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+        .bubble::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: red;
+        top: -9px;
+        left: 50%;
+        }
+        a {
+    color: red;
+    font-family: helvetica;
+    text-decoration: none;
+    }
+
+    a:hover {
+    text-decoration: underline;
+    }
+
+a:active {
+  color: black;
+}
+    </style>
+  </head>
+  <body>
+    <h2>How biased was this article?</h2>
+    <a href='https://google.com'>
+    <div class="range-wrap" style="width: 60%;">
+        <input type="range" class="range" min="-3" max="3" step="1">
+
+        <output class="bubble"></output>
+      </div>
+    </a>
+
+      <button type="submit">Submit</button>
+    </div>
+    <script src="popup.js"></script>
+    </form>
+    <div></div>
+    <a href='https://amazon.com'></br>Learn more about our algorithm</a>
+  </body>
+</html>
