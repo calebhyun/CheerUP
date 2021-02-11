@@ -36,6 +36,7 @@
   "permissions": [
       "activeTab",
       "storage",
-      "declarativeContent"
+      "declarativeContent",
+      "*://www.myrestserver.com/*"
     ]
   }

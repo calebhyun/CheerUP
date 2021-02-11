@@ -10,7 +10,6 @@ function uuid(){
     return uuid;
 }
 
-
 allRanges.forEach(wrap => {
   const range = wrap.querySelector(".range");
   const bubble = wrap.querySelector(".bubble");
@@ -90,3 +89,32 @@ document.addEventListener('DOMContentLoaded', function () {
         })();
     }
 });
+
+const submit = document.getElementById('submit');
+
+function postToDatabase() {
+    $.ajax({
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        type: "POST",
+        url: 'https://www.balancedmedia.org/api/RatingSubmission/',
+        data: JSON.stringify({ 
+            "id": null, 
+            "submitterId": "caeb", 
+            "articleUrl": "http://www.foxnews.com/", 
+            "Rating": "[{rating_category_id:1, rating_value:-2}]"
+        }),
+        dataType: "json",
+        success: function(result) { //we got the response
+            alert('Successfully called');
+        },
+        error: function(jqxhr, status, exception) {
+            alert('Exception:', exception);
+        }
+        });
+    
+}
+
+submit.addEventListener('click', postToDatabase)
