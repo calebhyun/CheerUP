@@ -1,4 +1,10 @@
 const allRanges = document.querySelectorAll(".range-wrap");
+var taburl = "";
+
+chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    taburl = tabs[0].url;
+    // use `url` here inside the callback because it's asynchronous!
+});
 
 function uuid(){
     var dt = new Date().getTime();
@@ -9,6 +15,8 @@ function uuid(){
     });
     return uuid;
 }
+const useruuid = uuid();
+
 
 allRanges.forEach(wrap => {
   const range = wrap.querySelector(".range");
@@ -92,7 +100,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const submit = document.getElementById('submit');
 
+function seeStats() {
+    
+}
+
 function postToDatabase() {
+    var response = document.getElementById("politicbias").value
+
+    var ratingdata = "[{rating_category_id:1, rating_value:" + response + "}]"
+
     $.ajax({
         headers: { 
             'Accept': 'application/json',
@@ -101,19 +117,20 @@ function postToDatabase() {
         type: "POST",
         url: 'https://www.balancedmedia.org/api/RatingSubmission/',
         data: JSON.stringify({ 
-            "id": null, 
-            "submitterId": "caeb", 
-            "articleUrl": "http://www.foxnews.com/", 
-            "Rating": "[{rating_category_id:1, rating_value:-2}]"
+            id: null, 
+            "submitterId": useruuid, 
+            "articleUrl": taburl, 
+            "Rating": ratingdata
         }),
         dataType: "json",
         success: function(result) { //we got the response
-            alert('Successfully called');
+            //alert('Successfully called');
         },
         error: function(jqxhr, status, exception) {
             alert('Exception:', exception);
         }
         });
+    
     
 }
 
