@@ -5,7 +5,7 @@
     "content_scripts": [
         {
         "matches": ["<all_urls>"],
-        "js": ["deepai.min.js", "contentscript.js", "jquery.min.js"]
+        "js": ["deepai.min.js","jquery.min.js", "contentscript.js"]
         }
     ],
     "permissions": [

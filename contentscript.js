@@ -1,3 +1,67 @@
+deepai.setApiKey('bc446df1-89bc-4b99-8cac-02b1a4e95a01');
+
+var allp = "";
+$("p").each(function() {
+    console.log($(this).text());
+    allp += $(this).text();
+});
+//alert(allp);
+
+/*var allimg = "";
+$("img").each(function() {
+    console.log($(this).text());
+    allimg += $(this).text();
+});
+alert(allimg);
+
+var imgarray = []
+
+var allimg = $(".media__image media__image--responsive").map(function() {
+    imgarray.push(this.innerHTML);
+})
+
+alert(imgarray)
+*/
+
+function checkSentiment(i){
+        deepai.callStandardApi("sentiment-analysis", {
+            text: allp
+        }).then(function(r) {
+            alert(r.output[0])
+
+            if (r.output[0] =="Verynegative"){
+                //alert("https://thezebra.org/wp-content/uploads/2020/07/Training-Time-Aug2020-GR-with-ball-1536x832.jpg")
+                $('img').attr('src', 'https://thezebra.org/wp-content/uploads/2020/07/Training-Time-Aug2020-GR-with-ball-1536x832.jpg');
+            }
+        
+        }, function(err) {
+
+        alert(err); // Error: "It broke"
+
+        });
+    }
+
+checkSentiment()
+    
+
+
+/*
+async function checkWebSentiment() {
+    //paragraph = document.getElementsByTagName('p').textContent
+    for (let i = 0; i < paragraph.length; i++) { 
+        alert(paragraph[i])
+    var resp = await deepai.callStandardApi("sentiment-analysis", {
+            text: paragraph[i],
+    });
+    alert(resp)
+}}
+
+checkWebSentiment()
+*/
+
+
+
+
 
 /*deepai.setApiKey('bc446df1-89bc-4b99-8cac-02b1a4e95a01');
 
