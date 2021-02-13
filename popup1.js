@@ -1,12 +1,13 @@
 const allRanges = document.querySelectorAll(".range-wrap");
-var taburl = "";
+
 
 $('#politicbias').focus();
-chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+var taburl = $(location).attr('href'); 
+/*chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     taburl = tabs[0].url;
     tabtitle = tabs[0].title;
     // use `url` here inside the callback because it's asynchronous!
-});
+});*/
 
 function uuid(){
     var dt = new Date().getTime();

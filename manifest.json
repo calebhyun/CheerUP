@@ -21,7 +21,7 @@
             "*://www.bbc.com/*",
             "*://www.usnews.com/*"        
         ],
-        "js": ["content.js"]
+        "js": ["jQuery.min.js", "content1.js", "popup1.js"]
     },
     {
         "matches":[
@@ -33,6 +33,11 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": ["embeddedpopup.htm"],
   "permissions": [
       "activeTab",
       "storage",
