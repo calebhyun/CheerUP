@@ -27,15 +27,15 @@ function checkSentiment(i){
         deepai.callStandardApi("sentiment-analysis", {
             text: allp
         }).then(function(r) {
-            alert(r.output[0])
+            //alert(r.output[0])
 
-            if (r.output[0] =="Verynegative"){
+            if (r.output[0] =="Verynegative" || r.output[0] == "negative"){
                 var img = document.getElementsByTagName('img'); 
                 //or however you get a handle to the IMG
                 var width = img[0].clientWidth;
                 
                 var height = img[0].clientHeight;
-                alert(width, height)
+                //alert(width, height)
                 //alert("https://thezebra.org/wp-content/uploads/2020/07/Training-Time-Aug2020-GR-with-ball-1536x832.jpg")
                 $('img').attr('src', 'http://placekitten.com/' + width + '/' + height);
             }

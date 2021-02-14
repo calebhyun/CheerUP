@@ -1,4 +1,11 @@
-deepai.setApiKey('bc446df1-89bc-4b99-8cac-02b1a4e95a01'); 
+
+
+
+
+
+
+
+/*deepai.setApiKey('bc446df1-89bc-4b99-8cac-02b1a4e95a01'); 
 
 function checkSentiment(){
 
@@ -33,4 +40,4 @@ function checkSentiment(){
 
         checkSentiment();
     
-    });
+    });*/
