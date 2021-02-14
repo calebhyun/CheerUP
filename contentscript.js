@@ -30,8 +30,14 @@ function checkSentiment(i){
             alert(r.output[0])
 
             if (r.output[0] =="Verynegative"){
+                var img = document.getElementsByTagName('img'); 
+                //or however you get a handle to the IMG
+                var width = img[0].clientWidth;
+                
+                var height = img[0].clientHeight;
+                alert(width, height)
                 //alert("https://thezebra.org/wp-content/uploads/2020/07/Training-Time-Aug2020-GR-with-ball-1536x832.jpg")
-                $('img').attr('src', 'https://thezebra.org/wp-content/uploads/2020/07/Training-Time-Aug2020-GR-with-ball-1536x832.jpg');
+                $('img').attr('src', 'http://placekitten.com/' + width + '/' + height);
             }
         
         }, function(err) {
